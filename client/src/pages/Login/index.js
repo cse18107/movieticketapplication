@@ -1,13 +1,31 @@
-import { Form } from "antd";
-import React from "react";
+import { Form, message } from "antd";
+import React, { useEffect } from "react";
 import Button from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { LoginUser } from "../../apicalls/users";
 
 const Login = () => {
-
-  const onFinish = (values) => {
-    console.log("success", values);
+  const navigate = useNavigate()
+  const onFinish = async (values) => {
+    try {
+      const response = await LoginUser(values);
+      if(response.success) {
+        message.success(response.message)
+        localStorage.setItem("token", response.data)
+        window.location.href = '/';
+      } else {
+        message.error(response.message)
+      }
+    } catch (error) {
+      message.error(error.message)
+    }
   }
+
+  useEffect(() => {
+    if(localStorage.getItem("token")) {
+      navigate("/");
+    }
+  }, [])
 
   return (
     <div className="flex justify-center h-screen items-center bg-primary">
