@@ -1,4 +1,4 @@
-Current Lecture:18. Add Movie Form 11:33
+Current Lecture:23. Add Theater UI 8:35
 
 Main Branch: development
 CurrentWorking Branch:
