@@ -63,6 +63,13 @@ const TheatersList = () => {
       dataIndex: "email",
     },
     {
+      title: "Owner",
+      dataIndex: "owner",
+      render: (text, record) => {
+        return record.owner.name;
+      },
+    },
+    {
       title: "Status",
       dataIndex: "isActive",
       render: (text, record) => {
@@ -82,7 +89,7 @@ const TheatersList = () => {
             {record.isActive && (
               <span
                 className="underline"
-                onClick={()=>handleStatusChange(record)}
+                onClick={() => handleStatusChange(record)}
               >
                 Block
               </span>
@@ -90,7 +97,7 @@ const TheatersList = () => {
             {!record.isActive && (
               <span
                 className="underline"
-                onClick={()=>handleStatusChange(record)}
+                onClick={() => handleStatusChange(record)}
               >
                 Approve
               </span>
