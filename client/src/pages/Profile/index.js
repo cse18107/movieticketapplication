@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import PageTitle from "../../components/PageTitle";
 import TheatersList from "./TheatersList";
+import Bookings from "./Bookings";
 
 const Profile = () => {
   return (
@@ -11,7 +12,7 @@ const Profile = () => {
       <PageTitle title="Profile" />
       <Tabs defaultActiveKey="1">
         <Tabs.TabPane tab="Bookings" key="1">
-          Bookings
+          <Bookings/>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Theaters" key="2">
           <TheatersList/>
